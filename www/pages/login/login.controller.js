@@ -2,11 +2,14 @@
  * Created by Ali on 2016-07-20.
  */
 
-app.controller('LoginCtrl',function(AddUser){
+app.controller('LoginCtrl',function(userAuth,$rootScope,$state){
     var vm = this;
 
-    vm.auth = AddUser.createUser();
+    vm.login = function(){
+      userAuth.signInUser(vm);
+    };
 
-  vm.test = "test";
-
+    vm.auth = function(){
+      userAuth.createUser();
+    };
 });
